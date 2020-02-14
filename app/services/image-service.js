@@ -1,3 +1,5 @@
+import Image from "../models/image.js"
+
 // @ts-ignore
 const imgApi = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/images",
@@ -9,7 +11,8 @@ class ImageService {
   getImg() {
     imgApi.get("")
       .then(res => {
-        let img = res
+        let img = new Image(res.data)
+        //let img = res.data
         console.log(img)
       })
   }
