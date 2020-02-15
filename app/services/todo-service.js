@@ -46,17 +46,22 @@ class TodoService {
   }
 
   toggleTodoStatusAsync(todoId) {
-    todoApi.put(todoId
+    todoApi.put(todoId)
       .then(res => {
-        let todo = store.State.todos.find(todo => todo._id == todoId);
+        let todo = store.State.todo.find(t => t._id == todoId);
         todo.completed = true
-        console.log(res)
-      }))
+        console.log(todo)
+        store.commit("todo", todo)
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
     //TODO Make sure that you found a todo,
     //		and if you did find one
     //		change its completed status to whatever it is not (ex: false => true or true => false)
 
-    todoApi.put(todoId, todo);
+    //  todoApi.put(todoId, todo);
     //TODO do you care about this data? or should you go get something else?
   }
 
