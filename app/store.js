@@ -6,8 +6,8 @@ import Todo from "./models/todo.js"
 let _state = {
   /**@type {Weather} */
   weather: null, //temporary fake data
-  /**@type {Todo}*/
-  todo: null, //TODO change 'any' to your todo model
+  /**@type {Todo[]}*/
+  todo: [], //TODO change 'any' to your todo model
   /**@type {Image}*/
   image: null,
   /**@type {Quote}*/

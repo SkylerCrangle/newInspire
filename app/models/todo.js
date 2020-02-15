@@ -25,14 +25,25 @@ export default class Todo {
 
 
   get todoTemplate() {
-
-    return `
+    if (this.completed) {
+      return `
     <li>
-    <label for="listBox"> ${this.message}</label>
+    <label for="listBox"> ${this.description}</label>
     <span></span>
-    <input type="checkbox" id="vehicle1" name="listBox" value="Bike">
+    <input type="checkbox" id="vehicle1" name="listBox" value="Bike" checked>
+    <button class="btn btn-clear text-muted" onclick="app.todoController.removeTodo('${this._id}')">X</button>
   </li>
     `
+    } else {
+      return `
+      <li>
+      <label for="listBox"> ${this.description}</label>
+      <span></span>
+      <input type="checkbox" id="vehicle1" name="listBox" value="Bike" onclick="app.todoController.toggleTodoStatus('${this._id}')">
+      <button class="btn btn-clear text-muted" onclick="app.todoController.removeTodo('${this._id}')">X</button>
+    </li>
+      `
+    }
   }
 
 }

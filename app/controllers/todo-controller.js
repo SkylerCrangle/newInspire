@@ -1,11 +1,20 @@
 import TodoService from "../services/todo-service.js";
 import store from "../store.js";
+import todoService from "../services/todo-service.js";
 
 //TODO Create the render function
-function _drawTodos() { }
+function _drawTodos() {
+  let things = store.State.todo;
+  let template = "";
+  things.forEach(thing => {
+    template += thing.todoTemplate;
+  })
+  document.getElementById("allThings").innerHTML = template;
+}
 
 export default class TodoController {
   constructor() {
+    store.subscribe("todo", _drawTodos)
     //TODO Remember to register your subscribers
     TodoService.getTodos();
   }
@@ -26,13 +35,14 @@ export default class TodoController {
 
       // TODO build the todo object from the data that comes into this method
     };
-    console.log(todo)
+    console.log(todo, 1)
     TodoService.addTodoAsync(todo);
   }
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be toggled
   toggleTodoStatus(todoId) {
     TodoService.toggleTodoStatusAsync(todoId);
+    console.log(todoId)
   }
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be deleted

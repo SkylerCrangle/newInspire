@@ -10,7 +10,14 @@ const todoApi = axios.create({
 class TodoService {
   getTodos() {
     console.log("Getting the Todo List");
-    todoApi.get();
+    todoApi.get("")
+      .then(thing => {
+        let allTodos = thing.data.data.map(t => new Todo(t));
+        store.commit("todo", allTodos)
+      })
+      .catch(error => {
+        console.error(error);
+      });
     //TODO Handle this response from the server
   }
 
@@ -20,10 +27,11 @@ class TodoService {
     todoApi.post("", todo)
       .then(thing => {
         let myTodo = new Todo(thing.data.data);
+        console.log(myTodo, 2)
         //console.log(myTodo)
         let todo = [...store.State.todo, myTodo];
         store.commit("todo", todo)
-
+        console.log(store.State.todo)
       })
       //thing.data.push(myTodo)
       //let myTodo = new Todo(thing.data)
@@ -38,7 +46,12 @@ class TodoService {
   }
 
   toggleTodoStatusAsync(todoId) {
-    let todo = store.State.todos.find(todo => todo._id == todoId);
+    todoApi.put(todoId
+      .then(res => {
+        let todo = store.State.todos.find(todo => todo._id == todoId);
+        todo.completed = true
+        console.log(res)
+      }))
     //TODO Make sure that you found a todo,
     //		and if you did find one
     //		change its completed status to whatever it is not (ex: false => true or true => false)
@@ -48,6 +61,15 @@ class TodoService {
   }
 
   removeTodoAsync(todoId) {
+    console.log(todoId)
+    todoApi.delete(todoId)
+      .then(() => {
+        let filteredTodos = store.State.todo.filter(t => t._id != todoId);
+        store.commit("todo", filteredTodos)
+      })
+      .catch(error => {
+        console.error(error);
+      });
     //TODO Work through this one on your own
     //		what is the request type
     //		once the response comes back, what do you need to insure happens?

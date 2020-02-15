@@ -27,11 +27,11 @@
 	</header>
 
 	<main class="row justify-content-around">
-		<div class="col-3 text-center">
+		<div class="col-3 text-right">
 			<div class="card" style="width: 18rem;">
 				<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
 				<div class="card-body">
-					<h5 class="card-title">Today's To-Do List</h5>
+					<h5 class="card-title text-center">Today's To-Do List</h5>
 					<!-- form -->
 					<form for="listName" onsubmit="app.todoController.addTodo(event)">
 						<div class="form-group">
@@ -42,7 +42,7 @@
 						<button type="submit" class="btn btn-primary col-12">Get it Done!</button>
 					</form>
 					<!-- form -->
-					<ol>
+					<ol id="allThings">
 						<!-- list items -->
 						<li>
 							<label for="listBox"> Check it</label>
