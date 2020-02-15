@@ -51,6 +51,7 @@ class TodoService {
         let todo = store.State.todo.find(t => t._id == todoId);
         todo.completed = true
         console.log(todo)
+        // store.commit("todo", "")
         store.commit("todo", store.State.todo)
       })
       .catch(error => {

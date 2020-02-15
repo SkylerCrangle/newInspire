@@ -1,13 +1,18 @@
 import TodoService from "../services/todo-service.js";
 import store from "../store.js";
-import todoService from "../services/todo-service.js";
+//import todoService from "../services/todo-service.js";
 
 //TODO Create the render function
 function _drawTodos() {
+  console.log(store.State.todo)
   let things = store.State.todo;
   let template = "";
   things.forEach(thing => {
-    template += thing.todoTemplate;
+    if (thing.completed) {
+      template += thing.todoTemplateT
+    } else {
+      template += thing.todoTemplateF;
+    }
   })
   document.getElementById("allThings").innerHTML = template;
 }
