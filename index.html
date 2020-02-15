@@ -11,15 +11,20 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image">
-	<div id="weather">
-		Your Weather Template
-	</div>
+<body class="container-fluid" id="bg-image">
+	<header class="row justify-content-around">
+		<div class="col-3">
+			<button class="btn btn-clear" onclick="app.imageController.getImg()">New Background Image</button>
+		</div>
+		<div id="weather" class="col-3">
+			Your Weather Template
+		</div>
+		<di class="col-12">
+			<div id="quote"></div>
+			<button class="btn btn-secondary" onclick="app.quoteController.getQuote()">New Quote</button>
+		</di>
+	</header>
 
-	<div id="quote">
-		The Quote
-		<button onclick="app.quoteController.getQuote()"></button>
-	</div>
 
 	<div>
 		A Todo List
@@ -28,10 +33,7 @@
 		<div id="todos"></div>
 	</div>
 
-	<div>
-		Get img
-		<button onclick="app.imageController.getImg()"></button>
-	</div>
+
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

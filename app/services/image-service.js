@@ -1,4 +1,5 @@
 import Image from "../models/image.js"
+import store from "../store.js";
 
 // @ts-ignore
 const imgApi = axios.create({
@@ -14,6 +15,7 @@ class ImageService {
         let img = new Image(res.data)
         //let img = res.data
         console.log(img)
+        store.commit("image", img)
       })
   }
 }

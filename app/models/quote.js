@@ -12,4 +12,11 @@ export default class Quote {
       this.id = data.quote.id,
       this.author = data.quote.author
   }
+
+  get quoteTemplate() {
+    return `
+    <h3>"${this.quote}"</h3>
+    <h4>---${this.author}---</h4>
+    `
+  }
 }

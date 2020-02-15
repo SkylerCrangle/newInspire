@@ -8,7 +8,21 @@ export default class Weather {
     //TODO You should probably convert the temperature data to either F or C
     //      check out the other data that comes back and see if there is anything you want to try
 
-    this.city = data.name
-    this.kelvin = data.main.temp
+    this.city = data.name,
+      this.kelvin = data.main.temp,
+      this.faren = Math.round(((this.kelvin - 273.15) * (9 / 5) + 32))
+
+  };
+
+
+  get weatherTemplate() {
+    return `
+    <h4>${this.city}</h4>
+    <h5>${this.faren}</h5>
+    `
   }
+
 }
+
+
+//(0K − 273.15) × 9/5 + 32
