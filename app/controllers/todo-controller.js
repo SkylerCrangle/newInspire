@@ -2,7 +2,7 @@ import TodoService from "../services/todo-service.js";
 import store from "../store.js";
 
 //TODO Create the render function
-function _drawTodos() {}
+function _drawTodos() { }
 
 export default class TodoController {
   constructor() {
@@ -10,12 +10,23 @@ export default class TodoController {
     TodoService.getTodos();
   }
 
-  addTodo(e) {
-    e.preventDefault();
-    var form = e.target;
+  addTodo(event) {
+    event.preventDefault();
+    //debugger;
+    console.log(event)
+    var data = event.target;
+    console.log(data[0].value)
     var todo = {
-      //TODO build the todo object from the data that comes into this method
+      message: data[0].value,
+      completed: data[0].checked,
+      description: data[0].value,
+      _id: data._id
+      // id: data.id.value || "",
+      // checked: false
+
+      // TODO build the todo object from the data that comes into this method
     };
+    console.log(todo)
     TodoService.addTodoAsync(todo);
   }
 

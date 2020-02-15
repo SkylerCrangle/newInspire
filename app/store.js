@@ -1,12 +1,13 @@
 import Weather from "./models/weather.js";
 import Image from "./models/image.js";
 import Quote from "./models/quote.js";
+import Todo from "./models/todo.js"
 
 let _state = {
   /**@type {Weather} */
   weather: null, //temporary fake data
-  /**@type {any[]}*/
-  todos: [], //TODO change 'any' to your todo model
+  /**@type {Todo}*/
+  todo: null, //TODO change 'any' to your todo model
   /**@type {Image}*/
   image: null,
   /**@type {Quote}*/
@@ -19,7 +20,8 @@ let _state = {
 let _listeners = {
   weather: [],
   image: [],
-  quote: []
+  quote: [],
+  todo: [],
 };
 
 /**

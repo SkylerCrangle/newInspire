@@ -12,6 +12,7 @@
 </head>
 
 <body class="container-fluid" id="bg-image">
+
 	<header class="row justify-content-around">
 		<div class="col-3">
 			<button class="btn btn-clear" onclick="app.imageController.getImg()">New Background Image</button>
@@ -24,6 +25,41 @@
 			<button class="btn btn-secondary" onclick="app.quoteController.getQuote()">New Quote</button>
 		</di>
 	</header>
+
+	<main class="row justify-content-around">
+		<div class="col-3 text-center">
+			<div class="card" style="width: 18rem;">
+				<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+				<div class="card-body">
+					<h5 class="card-title">Today's To-Do List</h5>
+					<!-- form -->
+					<form for="listName" onsubmit="app.todoController.addTodo(event)">
+						<div class="form-group">
+							<!-- <label for="submitToDo"></label> -->
+							<input type="text" class="form-control" id="submitToDo" placeholder="What do you need to do?"
+								name="listName">
+						</div>
+						<button type="submit" class="btn btn-primary col-12">Get it Done!</button>
+					</form>
+					<!-- form -->
+					<ol>
+						<!-- list items -->
+						<li>
+							<label for="listBox"> Check it</label>
+							<span></span>
+							<input type="checkbox" id="vehicle1" name="listBox" value="Bike">
+						</li>
+						<!-- list items -->
+					</ol>
+					<p class="card-text">You Can Do It!</p>
+					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
 
 
 	<div>
