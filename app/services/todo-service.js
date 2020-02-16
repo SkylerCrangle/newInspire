@@ -38,19 +38,33 @@ class TodoService {
   }
 
   toggleTodoStatusAsync(todoId) {
-    todoApi.put(todoId)
+    // From a process standpoint: find > edit > send to sever (put) > commit to state
+    let todo = store.State.todo.find(t => t._id == todoId);
+    todo.completed = true
+    todoApi.put(todoId, todo)
       .then(res => {
-        let todo = store.State.todo.find(t => t._id == todoId);
-        todo.completed = true
-        console.log(todo)
-
-
+        console.log(res)
         // store.commit("todo", "")
         store.commit("todo", store.State.todo)
       })
       .catch(error => {
         console.error(error);
       });
+  }
+
+  uncheck(todoId) {
+    let todo = store.State.todo.find(t => t._id == todoId);
+    todo.completed = false
+    todoApi.put(todoId, todo)
+      .then(res => {
+        console.log(res)
+        // store.commit("todo", "")
+        store.commit("todo", store.State.todo)
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
 
     //TODO Make sure that you found a todo,
     //		and if you did find one

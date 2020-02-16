@@ -52,6 +52,9 @@ export default class TodoController {
     console.log(todoId)
   }
 
+  uncheck(todoId) {
+    TodoService.uncheck(todoId);
+  }
   //NOTE This method will pass an Id to your service for the TODO that will need to be deleted
   removeTodo(todoId) {
     TodoService.removeTodoAsync(todoId);

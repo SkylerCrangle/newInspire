@@ -30,7 +30,7 @@ export default class Todo {
     <li>
     <label for="${this._id}"> ${this.description}</label>
     <span></span>
-    <input type="checkbox" id="${this._id}" name="${this._id}" value="${this.description}" checked>
+    <input type="checkbox" id="${this._id}" name="${this._id}" value="${this.description}" onclick="app.todoController.uncheck('${this._id}')" checked>
     <button class="btn btn-clear text-muted" onclick="app.todoController.removeTodo('${this._id}')">X</button>
   </li>
     `}
