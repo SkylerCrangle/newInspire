@@ -8,10 +8,11 @@ export default class Todo {
     //TODO You should probably convert the temperature data to either F or C
     //      check out the other data that comes back and see if there is anything you want to try
 
-    this.message = data.message,
-      //this.data = data.data || []
-      // this.id = data.id || "",
-      this.completed = data.completed || false,
+    // this.message = data.message,
+    //this.data = data.data || []
+    // this.id = data.id || "",
+    this.completed = data.completed || false,
+      //this.completed = data.completed,
       this.description = data.description,
       this._id = data._id
 

@@ -19,6 +19,7 @@ function _drawTodos() {
 
 export default class TodoController {
   constructor() {
+    //debugger;
     store.subscribe("todo", _drawTodos)
     //TODO Remember to register your subscribers
     TodoService.getTodos();
@@ -31,7 +32,7 @@ export default class TodoController {
     var data = event.target;
     console.log(data[0].value)
     var todo = {
-      message: data[0].value,
+      //message: data[0].value,
       completed: data[0].checked,
       description: data[0].value,
       _id: data._id
@@ -46,6 +47,7 @@ export default class TodoController {
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be toggled
   toggleTodoStatus(todoId) {
+    //event.preventDefault();
     TodoService.toggleTodoStatusAsync(todoId);
     console.log(todoId)
   }

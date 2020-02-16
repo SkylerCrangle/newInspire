@@ -13,6 +13,7 @@ class TodoService {
     todoApi.get("")
       .then(thing => {
         let allTodos = thing.data.data.map(t => new Todo(t));
+        console.log("service", allTodos)
         store.commit("todo", allTodos)
       })
       .catch(error => {
@@ -22,23 +23,14 @@ class TodoService {
   }
 
   addTodoAsync(todo) {
-    //debugger;
-    //let myTodo = new Todo(todo)
     todoApi.post("", todo)
       .then(thing => {
         let myTodo = new Todo(thing.data.data);
-        console.log(myTodo, 2)
         //console.log(myTodo)
         let todo = [...store.State.todo, myTodo];
         store.commit("todo", todo)
-        console.log(store.State.todo)
+        // console.log(store.State.todo)
       })
-      //thing.data.push(myTodo)
-      //let myTodo = new Todo(thing.data)
-      //let todo = [...store.State.todo, myTodo]; WHADDAFRICK
-      //console.log(thing)
-      //store.commit("todo", todo);
-      // })
       .catch(error => {
         console.error(error);
       });
@@ -51,6 +43,8 @@ class TodoService {
         let todo = store.State.todo.find(t => t._id == todoId);
         todo.completed = true
         console.log(todo)
+
+
         // store.commit("todo", "")
         store.commit("todo", store.State.todo)
       })
