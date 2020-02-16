@@ -13,24 +13,32 @@
 
 <body class="container-fluid" id="bg-image">
 
-	<header class="row justify-content-around">
-		<div class="col-3">
-			<button class="btn btn-clear" onclick="app.imageController.getImg()">New Background Image</button>
-		</div>
-		<div id="weather" class="col-3">
+	<div class="row justify-content-between text-center bg-op">
+		<h4 id="clockbox" class="col-6 p-3"></h4>
+		<div id="weather" class="col-3 p-3">
 			Your Weather Template
 		</div>
-		<di class="col-12 bg-dark text-light">
+
+	</div>
+
+	<header class="row justify-content-around">
+		<!-- <div class="col-3">
+			<button class="btn btn-clear" onclick="app.imageController.getImg()">New Background Image</button>
+		</div> -->
+		<!-- <div id="weather" class="col-3">
+			Your Weather Template
+		</div> -->
+		<!-- <di class="col-12 text-light bg-op">
 			<div id="quote"></div>
 			<button class="btn btn-secondary" onclick="app.quoteController.getQuote()">New Quote</button>
-		</di>
+		</di> -->
 	</header>
 
-	<main class="row justify-content-around">
-		<div class="col-3 text-right">
+	<main class="row justify-content-start">
+		<div class="col-3 text-right m-3">
 			<div class="card" style="width: 18rem;">
 				<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-				<div class="card-body">
+				<div class="card-body bg-cat">
 					<h5 class="card-title text-center">Today's To-Do List</h5>
 					<!-- form -->
 					<form for="listName" onsubmit="app.todoController.addTodo(event)">
@@ -51,7 +59,7 @@
 						</li>
 						<!-- list items -->
 					</ol>
-					<p class="card-text">You Can Do It!</p>
+					<p class="card-text"><b>You Can Do It!</b></p>
 					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 				</div>
 			</div>
@@ -59,15 +67,52 @@
 
 	</main>
 
+	<div class="row bg-op p-3">
+		<div class="col-11 text-light text-center">
+			<div id="quote"></div>
+			<!-- <button class="btn btn-secondary" onclick="app.quoteController.getQuote()">New Quote</button> -->
+		</div>
+		<div class="col-1">
+			<button class="btn btn-light" onclick="app.imageController.getImg()">Next BG</button> <span><br></span>
+			<button class="btn btn-light" onclick="app.quoteController.getQuote()">Next Quote</button>
+		</div>
+	</div>
+
 
 
 
 	<div>
-		A Todo List
+		<!-- A Todo List -->
 		<div id="todo-error"></div>
 		<form onsubmit=""></form>
 		<div id="todos"></div>
 	</div>
+
+
+	<script type="text/javascript">
+		var tday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		var tmonth = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+		function GetClock() {
+			var d = new Date();
+			var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getFullYear();
+			var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds(), ap;
+
+			if (nhour == 0) { ap = " AM"; nhour = 12; }
+			else if (nhour < 12) { ap = " AM"; }
+			else if (nhour == 12) { ap = " PM"; }
+			else if (nhour > 12) { ap = " PM"; nhour -= 12; }
+
+			if (nmin <= 9) nmin = "0" + nmin;
+			if (nsec <= 9) nsec = "0" + nsec;
+
+			var clocktext = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " " + nhour + ":" + nmin + ":" + nsec + ap + "";
+			document.getElementById('clockbox').innerHTML = clocktext;
+		}
+
+		GetClock();
+		setInterval(GetClock, 1000);
+	</script>
 
 
 

@@ -13,3 +13,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.bg-op{
+  /* background-color: rgba(51, 170, 51, .7); */
+  background-color: rgba(255, 255, 255, .4);
+}
+
+.no-op{
+  opacity: 1.0;
+}
+
+.bg-cat {
+  background-image: url(/mybg.jpg);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+}

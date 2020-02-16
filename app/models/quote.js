@@ -15,8 +15,8 @@ export default class Quote {
 
   get quoteTemplate() {
     return `
-    <h3>"${this.quote}"</h3>
-    <h4>---${this.author}---</h4>
+    <h5 class="no-op">"${this.quote}"</h5>
+    <p>---${this.author}---</p>
     `
   }
 }

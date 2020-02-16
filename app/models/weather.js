@@ -18,7 +18,7 @@ export default class Weather {
   get weatherTemplate() {
     return `
     <h4>${this.city}</h4>
-    <h5>${this.faren}</h5>
+    <h5>${this.faren}&#176;F</h5>
     `
   }
 
