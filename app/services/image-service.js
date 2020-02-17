@@ -13,8 +13,6 @@ class ImageService {
     imgApi.get("")
       .then(res => {
         let img = new Image(res.data)
-        //let img = res.data
-        console.log(img)
         store.commit("image", img)
       })
   }

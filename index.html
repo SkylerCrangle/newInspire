@@ -15,35 +15,17 @@
 
 	<div class="row justify-content-between text-center bg-op">
 		<h4 id="clockbox" class="col-6 p-3"></h4>
-		<div id="weather" class="col-3 p-3">
-			Your Weather Template
-		</div>
-
+		<div id="weather" class="col-3 p-3"></div>
 	</div>
-
-	<header class="row justify-content-around">
-		<!-- <div class="col-3">
-			<button class="btn btn-clear" onclick="app.imageController.getImg()">New Background Image</button>
-		</div> -->
-		<!-- <div id="weather" class="col-3">
-			Your Weather Template
-		</div> -->
-		<!-- <di class="col-12 text-light bg-op">
-			<div id="quote"></div>
-			<button class="btn btn-secondary" onclick="app.quoteController.getQuote()">New Quote</button>
-		</di> -->
-	</header>
 
 	<main class="row justify-content-start">
 		<div class="col-3 text-right m-3">
 			<div class="card" style="width: 18rem;">
-				<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
 				<div class="card-body bg-cat">
 					<h5 class="card-title text-center">Today's To-Do List</h5>
 					<!-- form -->
 					<form for="listName" onsubmit="app.todoController.addTodo(event)">
 						<div class="form-group">
-							<!-- <label for="submitToDo"></label> -->
 							<input type="text" class="form-control" id="submitToDo" placeholder="What do you need to do?"
 								name="listName">
 						</div>
@@ -70,7 +52,6 @@
 	<div class="row bg-op p-3">
 		<div class="col-11 text-light text-center">
 			<div id="quote"></div>
-			<!-- <button class="btn btn-secondary" onclick="app.quoteController.getQuote()">New Quote</button> -->
 		</div>
 		<div class="col-1">
 			<button class="btn btn-light" onclick="app.imageController.getImg()">Next BG</button>
@@ -80,9 +61,6 @@
 			<button class="btn btn-light" onclick="app.quoteController.getQuote()">Next Quote</button>
 		</div>
 	</div>
-
-
-
 
 	<div>
 		<!-- A Todo List -->
