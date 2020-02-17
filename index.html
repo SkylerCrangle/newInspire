@@ -50,17 +50,18 @@
 	</main>
 
 	<div class="row bg-op p-3">
-		<div class="col-11 text-light text-center">
+		<div class="col-12 text-dark text-center">
 			<div id="quote"></div>
 		</div>
-		<div class="col-1">
-			<button class="btn btn-light" onclick="app.imageController.getImg()">Next BG</button>
-			<div class="row">
-				<div class="col-12"></div><br>
-			</div>
-			<button class="btn btn-light" onclick="app.quoteController.getQuote()">Next Quote</button>
-		</div>
 	</div>
+	<br>
+
+
+	<div class="row justify-content-around">
+		<button class="btn btn-light col-5" onclick="app.imageController.getImg()">New BG</button>
+		<button class="btn btn-light col-5" onclick="app.quoteController.getQuote()">Next Quote</button>
+	</div>
+	<br>
 
 	<div>
 		<!-- A Todo List -->
