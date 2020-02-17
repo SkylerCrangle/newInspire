@@ -12,6 +12,7 @@ class WeatherService {
     console.log("Calling the Weatherman");
     let res = await weatherApi.get();
     store.commit("weather", new Weather(res.data));
+    console.log(store.State.weather)
   }
 }
 

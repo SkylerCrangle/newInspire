@@ -10,15 +10,24 @@ export default class Weather {
 
     this.city = data.name,
       this.kelvin = data.main.temp,
-      this.faren = Math.round(((this.kelvin - 273.15) * (9 / 5) + 32))
+      this.faren = Math.round(((this.kelvin - 273.15) * (9 / 5) + 32)),
+      this.icon = data.weather[0].icon,
+      this.iconurl = "http://openweathermap.org/img/w/" + this.icon + ".png";
 
   };
 
 
   get weatherTemplate() {
     return `
-    <h4>${this.city}</h4>
-    <h5>${this.faren}&#176;F</h5>
+    <span id="icon">
+    <img id="wicon" src="${this.iconurl}" alt="Weather icon"></span>
+
+
+    <span>${this.city}:
+    <span> 
+   <b> ${this.faren}&#176;F
+    </b></span>
+    </span>
     `
   }
 
